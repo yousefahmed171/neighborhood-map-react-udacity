@@ -1,0 +1,292 @@
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+    font-size: 23px;
+    font-weight: bold;
+}
+
+html {
+    min-height: 100vh;
+    box-sizing: border-box;
+    font-size: 62.5%;
+}
+
+.sidebar {
+    background-color: black;
+    width: 25vw;
+    height: 100vh;
+    text-align: center;
+    float: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.header {
+    border-bottom: 1px solid white;
+    flex: 0 0 8vh;
+    margin: 0 1rem 2rem;
+}
+
+.logo {
+    width: 2.5rem;
+    height: 2.5rem;
+    margin-right: 1rem;
+}
+
+.brand h1 {
+    font-size: 2.8rem;
+    text-transform: uppercase;
+    color: #e6d7c5;
+    font-weight: normal;
+    line-height: 8vh;
+    letter-spacing: 2px;
+}
+
+.filter {
+    height: 4.2rem;
+    border: none;
+    border-radius: 3px;
+    padding: 1rem 2rem;
+    margin: 0 1rem 2rem;
+    font-size: 2.3rem;
+    color: brown;
+    background-color: #e6d7c5;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.filter:focus {
+    outline: 1px solid #e6d7c5;
+}
+
+::placeholder {
+    color: grey;
+}
+
+.places {
+    margin: auto 0;
+    list-style: none;
+    overflow: auto;
+}
+
+.place {
+    display: block;
+    font-size: 1.6rem;
+    color: grey;
+    padding: .5rem 1rem;
+    margin: 1.5rem 1rem;
+    cursor: pointer;
+    position: relative;
+    transition: all .2s ease-out;
+}
+
+.place:hover {
+    color: #735e59;
+}
+
+
+.close {
+    display: none;
+    position: absolute;
+    top: 3px;
+    right: 3px;
+    width: 4rem;
+    height: 4rem;
+    color: #735e59;
+    background-color: red;
+    border-radius: 5rem 3px 5rem 5rem;
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15);
+    font-size: 2.5rem;
+    line-height: 4rem;
+    text-align: center;
+    cursor: pointer;
+}
+
+.details {
+    display: none;
+    position: relative;
+    color: #e6d7c5;
+}
+
+.details svg {
+    height: 2rem;
+    width: 2rem;
+    display: inline-block;
+    margin-bottom: -.5rem;
+    fill: #e6d7c5;
+}
+
+.address svg,
+.status svg {
+    margin-right: .75rem;
+}
+
+.link svg {
+    margin-left: 0.75rem;
+}
+
+.photo {
+    max-width: 100%;
+    height: auto;
+    border: 1px solid grey;
+    border-radius: 3px;
+}
+
+.rating {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 4rem;
+    width: 4rem;
+    font-size: 2rem;
+    line-height: 4rem;
+    background-color: white;
+    border-radius: 3px 50% 50% 50%;
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .25);
+}
+
+.address {
+    margin: 1rem 0;
+    padding: 1rem 0;
+    border-bottom: 1px solid #735e59;
+}
+
+.link:link,
+.link:visited {
+    text-decoration: none;
+    color: grey;
+    background-color: #e6d7c5;
+    padding: 1rem 2rem;
+    border-radius: 3px;
+    margin-top: 2rem;
+    display: block;
+    text-transform: uppercase;
+    box-shadow: 0 .25rem .5rem rgba(0, 0, 0, .25);
+    transition: all .2s ease-out;
+}
+
+.link:hover,
+.link:active {
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .25);
+}
+
+.selected {
+    background-color: grey;
+    border-radius: 3px;
+    padding: 2rem;
+    cursor: default;
+}
+
+.selected .name {
+    font-size: 2rem;
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #e6d7c5;
+}
+
+.selected .close {
+    display: block;
+}
+
+.selected .details {
+    display: block;
+}
+
+/****==  Map == ***/
+#map {
+    height: 100vh;
+    position: absolute;
+    right: 0;
+    top: 0;
+    left: 25vw;
+}
+
+
+/* ***==  MEDIA QUERIES  ==*** */
+
+@media screen and (min-width: 1600px) {
+    :root {
+        --sidebar-width: 20vw;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    :root {
+        --sidebar-width: 30vw;
+    }
+    
+    html {
+        font-size: 55%;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .sidebar {
+        height: auto;
+        display: block;
+        width: 100vw;
+        text-align: center;
+        float: none;
+        position: absolute;
+        top: 60vh;
+    }
+
+    .header {
+        border-bottom: 1px solid white;
+        margin: 0;
+        position: fixed;
+        top: 0;
+        width: 100vw;
+        background-color: grey;
+        z-index: 10;
+    }
+
+    .brand h1 {
+        line-height: 6rem;
+    }
+
+    #map {
+        height: calc(60vh - 6rem);
+        top: 6rem;
+        left: 0;
+    }
+
+    .filter {
+        height: 6rem;
+        margin: 1rem 2rem 0;
+        width: calc(100vw - 4rem);
+        max-width: 40rem;
+    }
+
+    .places {
+        width: calc(100vw - 4rem);
+        max-width: 40rem;
+        margin: 0 auto;
+    }
+    
+    .place {
+        padding: 1.75rem 1rem;
+        margin: 1.25rem 1rem;
+    }
+
+    .place:not(:last-child)::after {
+        width: 65%;
+    }
+
+    .close {
+        width: 4rem;
+        height: 4rem;
+        line-height: 4rem;
+    }
+
+    .selected .name {
+        padding-right: 3.5rem;
+    }
+
+}
