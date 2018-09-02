@@ -1,10 +1,9 @@
 # Udacity
 ### Front End Web Developer Nanodegree
 ##### React Neighborhood Map
-
-![image](React.png)  <img src="React.png" width="100" height="50">
-![image](googleMaps.jpg)  <img src="googleMaps.png" width="100" height="50">
-![image](foursquare.png)  <img src="foursquare.png" width="100" height="100">
+<img src="React.png" width="130" height="50">
+<img src="googleMaps.png" width="100" height="50">
+<img src="foursquare.png" width="100" height="100">
   
 
 > You will develop a single-page application using React featuring a map of your neighborhood or a neighborhood you would like to visit. 
