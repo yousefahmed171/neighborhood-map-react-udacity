@@ -2,9 +2,10 @@
 ### Front End Web Developer Nanodegree
 ##### React Neighborhood Map
 
-![React Logo](React.png)
-![Google Logo](googleMaps.jpg)
-![FourSquare Logo](foursquare.png)
+![image](React.png)  <img src="React.png" width="100" height="50">
+![image](googleMaps.jpg)  <img src="googleMaps.png" width="100" height="50">
+![image](foursquare.png)  <img src="foursquare.png" width="100" height="100">
+  
 
 > You will develop a single-page application using React featuring a map of your neighborhood or a neighborhood you would like to visit. 
 You will then add additional functionality to this application, including: map markers to identify popular locations or places you’d like to visit, a search function to easily discover these locations, and a list view to support simple browsing of all locations. You will then research and implement third-party APIs that provide additional information about each of these locations (such as StreetView images, Wikipedia articles, Yelp reviews, etc).
