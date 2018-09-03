@@ -24,6 +24,7 @@ class ListPlaces extends Component {
             .catch(err => alert(`Unable to get data from FourSquare (${err})`))   //handel erroe fetch 
     }
 
+    // details info img and rate .. 
     detailsOutput(details) {
         if (details.response.venue) {
 
@@ -44,7 +45,7 @@ class ListPlaces extends Component {
         }
 
     }
-
+    
     componentDidUpdate(prevProps) {
 
         if (prevProps.selected === this.props.selected) {

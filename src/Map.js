@@ -8,13 +8,16 @@ class Map extends Component {
         map: null,
         bounds: null,
         markers: [],
+        mapReady: false,
         google: null
     }
 
-    //start map.google
+    //start map.google and handel error 
     componentWillReceiveProps({ isScriptLoaded, isScriptLoadSucceed }) {
-        if (isScriptLoaded && !this.props.isScriptLoaded) {
+        // Check if script is loaded and if map is defined
+        if (isScriptLoaded && !this.state.mapReady) {
             if (isScriptLoadSucceed) {
+                // create map
                 var map = new window.google.maps.Map(document.getElementById('map'), {
                     zoom: 11,
                     center: { lat: 30.063294, lng: 31.337169 },
@@ -24,14 +27,16 @@ class Map extends Component {
 
                 var bounds = new window.google.maps.LatLngBounds();
 
-                this.setState({ map: map, bounds: bounds, google: window.google.maps })
+                this.setState({ map: map, bounds: bounds, google: window.google.maps, mapReady: true  })
 
-            }
-            else alert(`Unable to Load Google Maps`)
+            } else if (!this.state.mapReady) {
+                console.log("Map did not load");
+                alert("Unable to load Google Maps");
+            } 
         }
     }
 
-    // 
+    //  set Markers  
     updateMarkers = function (foods) {
 
         this.state.markers.map(marker => marker.setMap(null))
@@ -64,11 +69,13 @@ class Map extends Component {
         if (food !== this.props.selected) this.props.selectFoods(food)
     }
 
+    
     recenterMap = function (location) {
         this.state.map.setZoom(15)
         this.state.map.setCenter(location)
     }
 
+    
     componentDidUpdate(prevProps, prevState) {
 
         if (this.state.google !== prevState.google) {
